@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="src/css/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="src/css/brands.css" rel="stylesheet" type="text/css">
+    <link href="src/css/solid.css" rel="stylesheet" type="text/css">
+    <link href="src/css/main.css" rel="stylesheet" type="text/css">
+    <title>AxoWallet</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="index.html"><img class="logoAxo" src="./src/img/axo3.png" alt="AXOLOGO"></a>
+                    <span>AXOWALLET</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-md text-center myNav">
+            <div class="row">
+              <div class="col">
+                <a class="myNavBtn currencySymbol" href="#openModalChain">
+                    Chain
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="myNavBtn" href="#openModalAccount">
+                    Account
+                </a>
+              </div>
+              <div class="col">
+                <i class="fa-solid fa-gear fa-xl myNavIcon" id="generateMnemonic"></i>
+              </div>
+            </div>
+        </div>
+        <div class="container-md text-center p-4">
+            <div class="row">
+                <div class="col-12 ">
+                    <h4 id="userAddress" class="userAddress"></h4>
+                </div>
+            </div>
+            <div class="row p-3">
+                <div class="col-12">
+                    <span class="userBalanceTkn" id="currencyBalance"></span> <span class="userBalanceTkn currencySymbol"></span>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-12">
+                    <span id="usdBalance"></span>
+                </div>
+            </div>
+            <div class="row justify-content-md-center p-3">
+                <div class="col col-md-2">
+                    <a href="#openModalSend" id="modalToOpen" class="sendReceiveTokensLink"><i class="fa-solid fa-arrow-turn-up fa-xl myIStyle"></i></a>
+                </div>
+                <div class="col col-md-2">
+                    <a href="#openModalReceive" class="sendReceiveTokensLink"><i class="fa-solid fa-arrow-turn-down fa-xl myIStyle"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-md text-center">    
+            <input id="tab-1" type="radio" name="tabs" checked>
+            <label for="tab-1" class="col col-md-3">Tokens</label>
+          
+            <input id="tab-2" type="radio" name="tabs">
+            <label for="tab-2" class="col col-md-3">Activity</label>
+            <div class="tabsContent">
+                <div id="content-1">
+                    <h4>Tokens</h4>
+                    <p>Tokens</p>
+                    <a href="#"><i class="fa-solid fa-plus"></i> Import tokens</a>
+                </div>
+                <div id="content-2">
+                    <h4>Transactions</h4>
+                    <p>Transactions</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <modal>
+        <div class="container">
+            <div class="row">
+                <div id="openModalChain" class="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Select a network</h4>
+                                <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark"></i></a>
+                            </div>
+                            <div class="modal-body">    
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col-md-auto" >
+<!--                                            <i class="fa-brands fa-ethereum"></i>-->
+                                            <a href="#" class="chainSelect" data-value="ETH">
+                                                 ETH
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col-md-auto">
+<!--                                            <i class="fa-solid fa-bell"></i>-->
+                                            <a href="#" class="chainSelect" data-value="ERC20">
+                                                 Erc20
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="container text-center">
+                                        <div class="row">
+                                            <div class="col-md-auto">
+<!--                                                <i class="fa-solid fa-bell"></i>-->
+                                                <a href="#" class="chainSelect" data-value="BTC">
+                                                     BTC
+                                                </a>
+                                            </div>
+                                        </div>
+                                </div>
+                                <br>
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col-md-auto">
+<!--                                                <i class="fa-solid fa-bell"></i>-->
+                                            <a href="#" class="chainSelect" data-value="LTC">
+                                                LTC
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col-md-auto">
+<!--                                                <i class="fa-solid fa-bell"></i>-->
+                                            <a href="#" class="chainSelect" data-value="BNB">
+                                                BNB
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="openModalAccount" class="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center">Select an account</h4>
+                                <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark"></i></a>
+                            </div>
+                            <div class="modal-body">
+<!--                                Duplicate-->
+                                <div class="container text-center addressSelectBlock" id="addressSelectBlock">
+                                    <a href="#" class="addressSelect">
+                                        <div class="row row-cols-2 ">
+                                            <div class="col">Account</div>
+                                            <div class="col" id="balanceInAccountChoose"></div>
+                                            <div class="col userAddressSelect" id="addressInAccountChoose"></div>
+                                            <div class="col" id="balanceUsdInAccountChoose">USD</div>
+                                        </div>
+                                    </a>
+                                </div>
+<!--                                Duplicate-->
+                                <br>
+                                <div class="container text-center ">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Or</span>
+                                            <input id="importMnemonic" name="importMnemonic" placeholder="Import your mnemonic" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="openModalSend" class="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center">Send</h4>
+                                <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark"></i></a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <form>
+                                        <div class="mb-3">
+                                            <h6 for="exampleInputEmail1" class="form-label">Receiver</h6>
+                                            <input type="text" class="form-control" id="receiverToSent" placeholder="Enter the recipient's address">
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 for="exampleInputPassword1" class="form-label">Amount</h6>
+                                            <input type="text" class="form-control" id="amountToSent" placeholder="Enter the number of tokens">
+                                        </div>
+                                        <button type="submit" class="btn btn-dark" id="sendTokensBtn">Send</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="openModalReceive" class="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center">Receive</h4>
+                                <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark"></i></a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <canvas id="receiveQRCode"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span id="receiveQRCodeAddress" class="userAddressQRCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+    <script src="src/js/solid.js"></script>
+    <script src="./dist/main.js"></script>
+</body>
+</html>
